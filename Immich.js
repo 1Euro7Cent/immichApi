@@ -61,12 +61,70 @@ module.exports = class Immich {
         }
         return assets
     }
+    /**
+     * @param {string} id
+     * @param {string}[key] optional. Only returns albums that contain the asset Ignores the shared parameter undefined: get all albums
+     * @returns {Promise<ArrayBuffer>} the file content
+     */
 
     async downloadFile(id, key) {
 
         let path = methods.download.downloadFile(id, key)
 
         return await this.request(path.path, path.method, undefined, 'arraybuffer')
+    }
+
+    /**
+     * @returns {Promise<string>}
+     */
+    async pingServer() {
+        let path = methods.serverInfo.pingServer().path
+        return await this.request(path)
+    }
+
+    /**
+     * @param {boolean} isAll 
+     * @returns {Promise<User[]>}
+     */
+    async getAllUsers(isAll) {
+        let path = methods.user.getAllUsers(isAll).path
+        let json = await this.request(path)
+        let users = []
+        for (let user of json) {
+            users.push(new User().fromJson(user))
+        }
+        return users
+    }
+
+    /**
+     * @param {string} id 
+     * @returns {Promise<User>}
+     */
+    async getUserById(id) {
+        let path = methods.user.getUserById(id).path
+        let json = await this.request(path)
+        return new User().fromJson(json)
+    }
+
+    /**
+     * @returns {Promise<User>}
+     */
+    async getMyUserInfo() {
+        let path = methods.user.getMyUserInfo().path
+        let json = await this.request(path)
+        return new User().fromJson(json)
+    }
+
+    /**
+     * @param {string} id
+     * @param {string}[key] optional.
+     * @param {boolean}[withoutAssets] optional.
+     * @returns {Promise<Album>}
+     */
+    async getAlbumInfo(id, key, withoutAssets) {
+        let path = methods.album.getAlbumInfo(id, key, withoutAssets).path
+        let json = await this.request(path)
+        return new Album().fromJson(json)
     }
 
     async request(path, method = "get", data, responseType) {
@@ -83,12 +141,12 @@ module.exports = class Immich {
             responseType: responseType
         }
         console.log(config)
-        try {
-            // @ts-ignore
-            const response = await axios(config)
-            return response.data
-        } catch (error) {
-            return error
-        }
+
+        // @ts-ignore
+        const response = await axios(config)
+        console.log(response)
+        if (response.status / 100 !== 2) throw new Error(response)
+        return response.data
+
     }
 }

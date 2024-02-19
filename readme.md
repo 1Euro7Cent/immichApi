@@ -9,7 +9,7 @@ currently implemented:
     - [ ] createAlbum
     - [ ] getAlbumCount
     - [ ] deleteAlbum
-    - [ ] getAlbumInfo
+    - [x] getAlbumInfo
     - [ ] updateAlbumInfo
     - [ ] removeAssetFromAlbum
     - [ ] addAssetsToAlbum
@@ -111,7 +111,7 @@ currently implemented:
     - [ ] getServerConfig
     - [ ] getServerFeatures
     - [ ] getSupportedMediaTypes
-    - [ ] pingServer
+    - [x] pingServer
     - [ ] getServerStatistics
     - [ ] getTheme
     - [ ] getServerVersion
@@ -144,11 +144,11 @@ currently implemented:
     - [ ] restoreTrash
     - [ ] restoreAssets
 * User
-    - [ ] getAllUsers
+    - [x] getAllUsers
     - [ ] createUser
     - [ ] updateUser
-    - [ ] getUserById
-    - [ ] getMyUserInfo
+    - [x] getUserById
+    - [x] getMyUserInfo
     - [ ] deleteProfileImage
     - [ ] createProfileImage
     - [ ] getProfileImage
