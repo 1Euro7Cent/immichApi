@@ -127,6 +127,46 @@ module.exports = class Immich {
         return new Album().fromJson(json)
     }
 
+
+    /**
+     * 
+     * @param {string} albumId
+     * @param {string[]} assets the asset ids to add to the album
+     * @param {string} [key] optional.
+     * @returns 
+     */
+    async addAssetsToAlbum(albumId, assets, key) {
+        let path = methods.album.addAssetsToAlbum(albumId, assets, key)
+        let json = await this.request(path.path, path.method, path.data)
+        return json
+    }
+    /**
+    
+     * @param {number} [count ] optional
+     * @returns {Promise<Asset[]>}
+     */
+    async getRandomAssets(count) {
+        let path = methods.asset.getRandom(count).path
+        let json = await this.request(path)
+        let assets = []
+        for (let asset of json) {
+            assets.push(new Asset().fromJson(asset))
+        }
+        return assets
+    }
+
+    /**
+     * @param {string} id
+     * @param {string}[key] optional.
+     * @returns 
+     */
+    async getAssetInfo(id, key) {
+        let path = methods.asset.getAssetInfo(id, key).path
+        let json = await this.request(path)
+        return new Asset().fromJson(json)
+    }
+
+
     async request(path, method = "get", data, responseType) {
         let config = {
             method: method,
@@ -140,11 +180,11 @@ module.exports = class Immich {
             data: data,
             responseType: responseType
         }
-        console.log(config)
+        // console.log(config)
 
         // @ts-ignore
         const response = await axios(config)
-        console.log(response)
+        // console.log(response)
         if (response.status / 100 !== 2) throw new Error(response)
         return response.data
 

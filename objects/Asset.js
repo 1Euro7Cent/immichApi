@@ -1,4 +1,5 @@
 const ImageType = require("./ImageType")
+const People = require("./People")
 const Time = require("./Time")
 const User = require("./User")
 
@@ -126,7 +127,11 @@ module.exports = class Asset {
         this.isTrashed = json.isTrashed
         // todo: add exifInfo
         // todo: add tags
-        // todo: add people
+        if (json.people) {
+            for (let person of json.people) {
+                this.people.push(new People().fromJson(person))
+            }
+        }
         this.checksum = json.checksum
         this.stackCount = json.stackCount
         this.isExternal = json.isExternal

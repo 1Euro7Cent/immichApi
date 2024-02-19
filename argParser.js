@@ -11,7 +11,7 @@ module.exports = function (path, argValue, argName) {
     if (argValue === undefined) return path
     if (argValue instanceof Time) argValue = argValue.time.toISOString()
     if (typeof argValue === 'boolean') argValue = argValue.toString()
-    if (typeof argValue === 'number') argValue = argValue.toString(argValue)
+    if (typeof argValue === 'number') argValue = argValue.toString()
 
     let first = !path.includes('?')
     path += first ? '?' : '&'
