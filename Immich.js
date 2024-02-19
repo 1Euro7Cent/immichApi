@@ -153,11 +153,11 @@ module.exports = class Immich {
     }
 
     /**
-     * 
+     *
      * @param {string} albumId
      * @param {string[]} assets the asset ids to add to the album
      * @param {string} [key] optional.
-     * @returns 
+     * @returns
      */
     async addAssetsToAlbum(albumId, assets, key) {
         let path = methods.album.addAssetsToAlbum(albumId, assets, key)
@@ -165,7 +165,7 @@ module.exports = class Immich {
         return json
     }
     /**
-    
+
      * @param {number} [count ] optional
      * @returns {Promise<Asset[]>}
      */
@@ -182,7 +182,7 @@ module.exports = class Immich {
     /**
      * @param {string} id
      * @param {string}[key] optional.
-     * @returns 
+     * @returns
      */
     async getAssetInfo(id, key) {
         let path = methods.asset.getAssetInfo(id, key).path
