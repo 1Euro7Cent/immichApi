@@ -2,3 +2,10 @@
 node_modules
 test.js
 test.json
+
+## All Vido and Audio and Image files
+*.jpg
+*.png
+*.gif
+*.mp4
+*.webp

@@ -41,7 +41,7 @@ currently implemented:
     - [ ] getAssetThumbnail
     - [ ] getTimeBucket
     - [ ] getTimeBuckets
-    - [ ] uploadFile
+    - [x] uploadFile
     - [x] getAssetInfo
     - [ ] updateAsset
 * Audit

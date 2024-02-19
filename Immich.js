@@ -61,6 +61,31 @@ module.exports = class Immich {
         }
         return assets
     }
+
+    /**
+     * @param {ReadStream} file
+     * @param {String} deviceAssetId
+     * @param {String} deviceId
+     * @param {Time} fileCreatedAt
+     * @param {Time} fileModifiedAt
+     * @param {String} [duration] optional
+     * @param {boolean} [isArchived] optional
+     * @param {boolean} [isExternal] optional
+     * @param {boolean} [isFavorite] optional
+     * @param {boolean} [isOffline] optional
+     * @param {boolean} [isReadOnly] optional
+     * @param {boolean} [isVisible] optional
+     * @param {String} [libraryId] optional
+     * @param {ReadStream} [livePhotoData] optional
+     * @param {ReadStream} [sidecarData] optional
+     * @returns {{path: string}}
+     */
+    async uploadFile(file, deviceAssetId, deviceId, fileCreatedAt, fileModifiedAt, duration, isArchived, isExternal, isFavorite, isOffline, isReadOnly, isVisible, libraryId, livePhotoData, sidecarData) {
+        let path = methods.asset.uploadFile(file, deviceAssetId, deviceId, duration, fileCreatedAt, fileModifiedAt, isArchived, isExternal, isFavorite, isOffline, isReadOnly, isVisible, libraryId, livePhotoData, sidecarData)
+        return await this.request(path.path, path.method, path.data, 'object', 'multipart/form-data')
+    }
+
+
     /**
      * @param {string} id
      * @param {string}[key] optional. Only returns albums that contain the asset Ignores the shared parameter undefined: get all albums
@@ -127,13 +152,12 @@ module.exports = class Immich {
         return new Album().fromJson(json)
     }
 
-
     /**
-     * 
+     *
      * @param {string} albumId
      * @param {string[]} assets the asset ids to add to the album
      * @param {string} [key] optional.
-     * @returns 
+     * @returns
      */
     async addAssetsToAlbum(albumId, assets, key) {
         let path = methods.album.addAssetsToAlbum(albumId, assets, key)
@@ -141,7 +165,7 @@ module.exports = class Immich {
         return json
     }
     /**
-    
+
      * @param {number} [count ] optional
      * @returns {Promise<Asset[]>}
      */
@@ -158,7 +182,7 @@ module.exports = class Immich {
     /**
      * @param {string} id
      * @param {string}[key] optional.
-     * @returns 
+     * @returns
      */
     async getAssetInfo(id, key) {
         let path = methods.asset.getAssetInfo(id, key).path
@@ -167,14 +191,14 @@ module.exports = class Immich {
     }
 
 
-    async request(path, method = "get", data, responseType) {
+    async request(path, method = "get", data, responseType, contentType = 'application/json') {
         let config = {
             method: method,
             maxBodyLength: Infinity,
             url: this.url + path,
             headers: {
                 'Accept': 'application/octet-stream',
-                'Content-Type': 'application/json',
+                'Content-Type': contentType,
                 'x-api-key': this.apiKey
             },
             data: data,
@@ -184,9 +208,8 @@ module.exports = class Immich {
 
         // @ts-ignore
         const response = await axios(config)
-        // console.log(response)
-        if (response.status / 100 !== 2) throw new Error(response)
+        //console.log(response)
+        if (Math.floor(response.status / 100) !== 2) throw new Error(response)
         return response.data
-
     }
 }

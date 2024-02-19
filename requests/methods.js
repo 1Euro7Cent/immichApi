@@ -5,6 +5,7 @@ const album = {
 }
 const asset = {
     getAllAssets: require('./methods/asset/getAllAssets'),
+    uploadFile: require('./methods/asset/uploadFile'),
     getRandom: require('./methods/asset/getRandom'),
     getAssetInfo: require('./methods/asset/getAssetInfo'),
 }
