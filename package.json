@@ -1,0 +1,22 @@
+{
+  "name": "immichapi",
+  "version": "1.0.0",
+  "description": "The immich api packed in a npm package",
+  "main": "Immich.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1Euro7Cent/immichApi.git"
+  },
+  "author": "1euro7cent",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/1Euro7Cent/immichApi/issues"
+  },
+  "homepage": "https://github.com/1Euro7Cent/immichApi#readme",
+  "dependencies": {
+    "axios": "^1.6.7"
+  }
+}
