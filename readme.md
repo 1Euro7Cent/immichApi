@@ -12,7 +12,7 @@ currently implemented:
     - [x] getAlbumInfo
     - [ ] updateAlbumInfo
     - [ ] removeAssetFromAlbum
-    - [ ] addAssetsToAlbum
+    - [x] addAssetsToAlbum
     - [ ] removeUserFromAlbum
     - [ ] addUsersToAlbum
 * Api Key
@@ -34,7 +34,7 @@ currently implemented:
     - [ ] runAssetJobs
     - [ ] getMapMarkers
     - [ ] getMemoryLane
-    - [ ] getRandom
+    - [x] getRandom
     - [ ] getAssetSearchTerms
     - [ ] updateStackParent
     - [ ] getAssetStatistics
@@ -42,7 +42,7 @@ currently implemented:
     - [ ] getTimeBucket
     - [ ] getTimeBuckets
     - [ ] uploadFile
-    - [ ] getAssetInfo
+    - [x] getAssetInfo
     - [ ] updateAsset
 * Audit
     - [ ] getAuditDeletes

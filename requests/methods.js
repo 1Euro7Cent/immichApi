@@ -1,10 +1,13 @@
 const album = {
     getAllAlbums: require('./methods/album/getAllAlbums'),
-    getAlbumInfo: require('./methods/album/getAlbumInfo')
+    getAlbumInfo: require('./methods/album/getAlbumInfo'),
+    addAssetsToAlbum: require('./methods/album/addAssetsToAlbum'),
 }
 const asset = {
     getAllAssets: require('./methods/asset/getAllAssets'),
-    uploadFile: require('./methods/asset/uploadFile')
+    uploadFile: require('./methods/asset/uploadFile'),
+    getRandom: require('./methods/asset/getRandom'),
+    getAssetInfo: require('./methods/asset/getAssetInfo'),
 }
 const download = {
     downloadFile: require('./methods/download/downloadFile')
