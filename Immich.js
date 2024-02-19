@@ -208,8 +208,8 @@ module.exports = class Immich {
 
         // @ts-ignore
         const response = await axios(config)
-        // console.log(response)
-        if (response.status / 100 !== 2) throw new Error(response)
+        //console.log(response)
+        if (Math.floor(response.status / 100) !== 2) throw new Error(response)
         return response.data
     }
 }
