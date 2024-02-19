@@ -3,7 +3,7 @@ const argParser = require("../../../argParser")
 module.exports = (
     /**
      * @param {boolean} isAll 
-     * @returns {{path: string}}
+    * @returns {{path: string, method?: string }}
      */
     (isAll) => {
         let res = {

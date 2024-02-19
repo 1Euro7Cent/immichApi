@@ -3,7 +3,7 @@ const argParser = require("../../../argParser")
 module.exports = (
     /**
      * @param {string} id 
-     * @returns {{path: string}}
+    * @returns {{path: string, method?: string }}
      */
     (id) => {
         if (!id) throw new Error('id is required')

@@ -10,7 +10,7 @@ module.exports = (
      * @param {Time} [updatedAfter] optional
      * @param {Time} [updatedBefore] optional
      * @param {string} [userId] optional
-     * @returns {{path: string}}
+    * @returns {{path: string, method?: string }}
      */
     (isArchived, isFavorite, skip, take, updatedAfter, updatedBefore, userId) => {
         let res = {

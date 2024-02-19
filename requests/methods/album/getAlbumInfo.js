@@ -5,7 +5,7 @@ module.exports = (
      * @param {string} id 
      * @param {string}[key] optional.
      * @param {boolean}[withoutAssets] optional.
-     * @returns {{path: string}}
+    * @returns {{path: string, method?: string }}
      */
     (id, key, withoutAssets) => {
         if (!id) throw new Error('id is required')

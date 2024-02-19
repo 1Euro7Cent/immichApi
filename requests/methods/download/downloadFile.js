@@ -4,7 +4,7 @@ module.exports = (
     /**
      * @param {string} id
      * @param {string}[key] optional. Only returns albums that contain the asset Ignores the shared parameter undefined: get all albums
-     * @returns {{path: string}}
+     * @returns {{path: string, method?: string}}
      */
     (id, key) => {
         if (!id) throw new Error('id is required')

@@ -3,7 +3,7 @@ const argParser = require("../../../argParser")
 module.exports = (
     /**
      * @param {number} [count ] optional
-     * @returns {{path: string}}
+    * @returns {{path: string, method?: string}}
      */
     (count) => {
         let res = {

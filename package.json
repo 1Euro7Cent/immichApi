@@ -1,6 +1,6 @@
 {
   "name": "immichapi",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The immich api packed in a npm package",
   "main": "Immich.js",
   "scripts": {

@@ -63,7 +63,7 @@ module.exports = class Immich {
     }
 
     /**
-     * @param {ReadStream} file
+     * @param {import('fs').ReadStream} file
      * @param {String} deviceAssetId
      * @param {String} deviceId
      * @param {Time} fileCreatedAt
@@ -76,8 +76,8 @@ module.exports = class Immich {
      * @param {boolean} [isReadOnly] optional
      * @param {boolean} [isVisible] optional
      * @param {String} [libraryId] optional
-     * @param {ReadStream} [livePhotoData] optional
-     * @param {ReadStream} [sidecarData] optional
+     * @param {import('fs').ReadStream} [livePhotoData] optional
+     * @param {import('fs').ReadStream} [sidecarData] optional
      * @returns {{path: string}}
      */
     async uploadFile(file, deviceAssetId, deviceId, fileCreatedAt, fileModifiedAt, duration, isArchived, isExternal, isFavorite, isOffline, isReadOnly, isVisible, libraryId, livePhotoData, sidecarData) {

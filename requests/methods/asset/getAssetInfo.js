@@ -4,7 +4,7 @@ module.exports = (
     /**
      * @param {string} id
      * @param {string}[key] optional.
-     * @returns {{path: string}}
+    * @returns {{path: string, method?: string }}
      */
     (id, key) => {
         if (!id) throw new Error('id is required')
