@@ -3,7 +3,8 @@ const album = {
     getAlbumInfo: require('./methods/album/getAlbumInfo')
 }
 const asset = {
-    getAllAssets: require('./methods/asset/getAllAssets')
+    getAllAssets: require('./methods/asset/getAllAssets'),
+    uploadFile: require('./methods/asset/uploadFile')
 }
 const download = {
     downloadFile: require('./methods/download/downloadFile')
