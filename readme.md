@@ -11,7 +11,7 @@ currently implemented:
     - [ ] deleteAlbum
     - [x] getAlbumInfo
     - [ ] updateAlbumInfo
-    - [ ] removeAssetFromAlbum
+    - [x] removeAssetFromAlbum
     - [x] addAssetsToAlbum
     - [ ] removeUserFromAlbum
     - [ ] addUsersToAlbum

@@ -5,7 +5,13 @@ module.exports = class ImageType {
     constructor(type) {
         this.type = type
 
-        if (!["IMAGE", "VIDEO", "AUDIO", "OTHER"].includes(type)) {
+        if (typeof this.type !== 'string') {
+            if (typeof this.type.type == 'string') {
+                this.type = this.type.type
+            }
+        }
+
+        if (!["IMAGE", "VIDEO", "AUDIO", "OTHER"].includes(this.type)) {
             throw new Error('Invalid type')
         }
     }

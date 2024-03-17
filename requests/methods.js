@@ -2,6 +2,7 @@ const album = {
     getAllAlbums: require('./methods/album/getAllAlbums'),
     getAlbumInfo: require('./methods/album/getAlbumInfo'),
     addAssetsToAlbum: require('./methods/album/addAssetsToAlbum'),
+    removeAssetsFromAlbum: require('./methods/album/removeAssetsFromAlbum'),
 }
 const asset = {
     getAllAssets: require('./methods/asset/getAllAssets'),

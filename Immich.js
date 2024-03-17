@@ -164,6 +164,20 @@ module.exports = class Immich {
         let json = await this.request(path.path, path.method, path.data)
         return json
     }
+
+    /**
+     *
+     * @param {string} albumId
+     * @param {string[]} assets the asset ids to remove to the album
+     * @returns
+     */
+    async removeAssetsFromAlbum(albumId, assets) {
+        let path = methods.album.removeAssetsFromAlbum(albumId, assets)
+        let json = await this.request(path.path, path.method, path.data)
+        return json
+
+    }
+
     /**
 
      * @param {number} [count ] optional
