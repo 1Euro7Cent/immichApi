@@ -9,7 +9,7 @@ module.exports = (
     (id, key) => {
         if (!id) throw new Error('id is required')
         let res = {
-            path: `/asset/${id}`
+            path: `/assets/${id}`
         }
         // first param with ? and the rest with &
         res.path = argParser(res.path, key, 'key')

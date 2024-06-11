@@ -23,7 +23,7 @@ module.exports = (
      */
     (file, deviceAssetId, deviceId, duration, fileCreatedAt, fileModifiedAt, isArchived, isExternal, isFavorite, isOffline, isReadOnly, isVisible, libraryId, livePhotoData, sidecarData) => {
         let res = {
-            path: '/asset/upload',
+            path: '/assets/upload',
             method: 'post',
         }
         const form = new FormData()

@@ -7,7 +7,7 @@ module.exports = (
      */
     (count) => {
         let res = {
-            path: '/asset/random'
+            path: '/assets/random'
         }
         // first param with ? and the rest with &
         res.path = argParser(res.path, count, 'count')
