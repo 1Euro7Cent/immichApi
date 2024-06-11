@@ -9,7 +9,7 @@ module.exports = (
     (id, key) => {
         if (!id) throw new Error('id is required')
         let res = {
-            path: `/download/assets/${id}`,
+            path: `/download/assets/${id}/original`,
             method: 'post'
         }
 
