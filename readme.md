@@ -2,7 +2,14 @@ This project is still in development and is in a really early state. It will imp
 
 Don't use this. At least not yet.
 
-currently implemented:
+# Api changes ⚠
+this is all album stuff for `immich >= 1.106.0`. due to [this](https://github.com/immich-app/immich/pull/9667) pull request, the album api has changed.
+
+for older immich versions, use the version `1.2.0` of this package.
+`npm i immichapi@1.2.0`
+
+## currently implemented:
+
 * [x] auth method via api key
 * Album:
     - [x] getAllAlbums

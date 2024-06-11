@@ -204,6 +204,57 @@ module.exports = class Immich {
         return new Asset().fromJson(json)
     }
 
+    /**
+     * @param {"DAY" | "MONTH"} size
+ * @param {string} [albumId] optional.
+ * @param {boolean} [isArchived] optional.
+ * @param {boolean} [isFavorite] optional.
+ * @param {boolean} [isTrashed] optional.
+ * @param {string} [key] optional.
+ * @param {"asc" | "desc"} [order] optional.
+ * 
+ * @param {string} [uuid] optional.
+ * 
+ * @param {boolean} [withPartners] optional.
+ * @param {boolean} [withStacked] optional.
+ * @returns {Promise<{timeBucket: string, count: number }[]>}
+ */
+
+    async getTimeBuckets(size, albumId, isArchived, isFavorite, isTrashed, key, order, uuid, withPartners, withStacked) {
+
+        let path = methods.timeline.getTimeBuckets(size, albumId, isArchived, isFavorite, isTrashed, key, order, uuid, withPartners, withStacked).path
+        let json = await this.request(path)
+        return json
+    }
+
+    /**
+ * @param {"DAY" | "MONTH"} size
+ * @param {string} timeBucket
+ * @param {string} [albumId] optional.
+ * @param {boolean} [isArchived] optional.
+ * @param {boolean} [isFavorite] optional.
+ * @param {boolean} [isTrashed] optional.
+ * @param {string} [key] optional.
+ * @param {"asc" | "desc"} [order] optional.
+ * 
+* @param {string}[personId] optional.
+* @param {string}[uuid] optional.
+ * 
+ * @param {boolean} [withPartners] optional.
+ * @param {boolean} [withStacked] optional.
+ * @returns {Promise<Asset[]>}
+ */
+    async getTimeBucket(size, timeBucket, albumId, isArchived, isFavorite, isTrashed, key, order, personId, uuid, withPartners, withStacked) {
+        let path = methods.timeline.getTimeBucket(size, timeBucket, albumId, isArchived, isFavorite, isTrashed, key, order, personId, uuid, withPartners, withStacked).path
+        let json = await this.request(path)
+        // console.log(json)
+        let assets = []
+        for (let asset of json) {
+            assets.push(new Asset().fromJson(asset))
+        }
+        return assets
+    }
+
 
     async request(path, method = "get", data, responseType, contentType = 'application/json') {
         let config = {

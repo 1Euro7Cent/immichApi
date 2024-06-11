@@ -10,7 +10,7 @@ module.exports = (
     (id, key, withoutAssets) => {
         if (!id) throw new Error('id is required')
         let res = {
-            path: `/album/${id}`,
+            path: `/albums/${id}`,
         }
 
         // res.path = argParser(res.path, id, 'id')

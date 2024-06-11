@@ -6,7 +6,7 @@ module.exports = (
      */
     (assetId, shared) => {
         let res = {
-            path: '/album'
+            path: '/albums'
         }
         res.path += assetId !== undefined ? `?assetId=${assetId}` : ''
         res.path += shared !== undefined ? (assetId !== undefined ? `&shared=${shared}` : `?shared=${shared}`) : ''

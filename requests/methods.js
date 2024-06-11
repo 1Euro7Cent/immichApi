@@ -22,10 +22,16 @@ const user = {
     getMyUserInfo: require('./methods/user/getMyUserInfo')
 }
 
+const timeline = {
+    getTimeBuckets: require('./methods/timeline/getTimeBuckets'),
+    getTimeBucket: require('./methods/timeline/getTimeBucket'),
+}
+
 module.exports = {
     album,
     asset,
     download,
     serverInfo,
-    user
+    user,
+    timeline
 }

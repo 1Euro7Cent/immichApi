@@ -17,7 +17,7 @@ module.exports = (
         }
 
         let res = {
-            path: `/album/${albumId}/assets`,
+            path: `/albums/${albumId}/assets`,
             data: JSON.stringify(data),
             method: "put"
         }
