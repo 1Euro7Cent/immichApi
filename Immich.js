@@ -247,7 +247,7 @@ module.exports = class Immich {
     async getTimeBucket(size, timeBucket, albumId, isArchived, isFavorite, isTrashed, key, order, personId, uuid, withPartners, withStacked) {
         let path = methods.timeline.getTimeBucket(size, timeBucket, albumId, isArchived, isFavorite, isTrashed, key, order, personId, uuid, withPartners, withStacked).path
         let json = await this.request(path)
-        console.log(json)
+        // console.log(json)
         let assets = []
         if (!Array.isArray(json)) {
             // use the new format 
