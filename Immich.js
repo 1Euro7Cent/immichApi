@@ -247,10 +247,43 @@ module.exports = class Immich {
     async getTimeBucket(size, timeBucket, albumId, isArchived, isFavorite, isTrashed, key, order, personId, uuid, withPartners, withStacked) {
         let path = methods.timeline.getTimeBucket(size, timeBucket, albumId, isArchived, isFavorite, isTrashed, key, order, personId, uuid, withPartners, withStacked).path
         let json = await this.request(path)
-        // console.log(json)
+        console.log(json)
         let assets = []
-        for (let asset of json) {
-            assets.push(new Asset().fromJson(asset))
+        if (!Array.isArray(json)) {
+            // use the new format 
+            /*
+            {
+                city: [a,a,a,a...],
+                country: [a,a,a,a...],
+                duration: [a,a,a,a...],
+                id: [a,a,a,a...],
+                visibility: [a,a,a,a...],
+                isFavorite: [a,a,a,a...],
+                isImage: [a,a,a,a...],
+                isTrashed: [a,a,a,a...],
+                livePhotoVideoId: [a,a,a,a...],
+                localDateTime: [a,a,a,a...],
+                ownerId: [a,a,a,a...],
+                protectionType: [a,a,a,a...],
+                ratio: [a,a,a,a...],
+                status: [a,a,a,a...],
+                thumbhash: [a,a,a,a...],
+            }
+            */
+
+            // call getAssetInfo for each asset id
+
+            for (let id of json.id) {
+                let asset = await this.getAssetInfo(id, json.key)
+                assets.push(asset)
+            }
+
+
+        }
+        else {
+            for (let asset of json) {
+                assets.push(new Asset().fromJson(asset))
+            }
         }
         return assets
     }
